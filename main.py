@@ -28,7 +28,8 @@ with open("inputFiles.csv", "w") as file:
         file.write(path + "\\"+each_input_file+'\n')
 
 
-dolos.output_format = "csv"
+dolos.output_format = "web"
+dolos.port = "8080"
 dolos.output_destination = f"Dolos_Reports"
 dolos.path = f"inputFiles.csv"
 dolos.language = "cpp"
