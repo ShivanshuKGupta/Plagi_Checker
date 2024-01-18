@@ -1,9 +1,10 @@
 import shutil
 import os
+import sys
 from DolosAPI.dolos import dolos
 
 
-if (shutil.which("npm") is None):  # dolos is not installed then
+if (shutil.which("npm") is None):  # npm is not installed then
     print("npm is not installed. Please install node from https://nodejs.org/ then run this script.")
     exit(0)
 
@@ -15,12 +16,17 @@ if (shutil.which("dolos") is None):  # dolos is not installed then
         print("Exiting...")
         exit(0)
 
+path = ""
 
-print("How to use?")
-print("Create a folder let us say 'submissions' copy all .c/.cpp files there.")
-print("Finally just enter that folder path down here.")
+if (len(sys.argv) > 1):
+    path = sys.argv[1]
 
-path = input("Enter the submissions folder path:")
+if (len(path) == 0):
+    print("How to use?")
+    print("Create a folder let us say 'submissions' copy all .c/.cpp files there.")
+    print("Finally just enter that folder path down here.")
+
+    path = input("Enter the submissions folder path:")
 
 with open("inputFiles.csv", "w") as file:
     file.write("filename"+'\n')
